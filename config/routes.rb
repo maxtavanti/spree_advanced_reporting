@@ -1,4 +1,4 @@
- Spree::Core::Engine.routes.prepend do
+Spree::Core::Engine.routes.draw do
   match '/admin/reports/outstanding' => 'admin/reports#outstanding',  :via  => [:get, :post],
                                                             :as   => 'outstanding_admin_reports'
 
@@ -33,5 +33,5 @@
   match '/admin/reports/transactions' => 'admin/reports#transactions', :via => [:get, :post],
                                                                        :as => 'transactions_admin_reports'
 
-  # match "/admin" => "admin/advanced_report_overview#index", :as => :admin
+  # match "/admin/reports/overview" => "admin/advanced_report_overview#index", :via => [:get], :as => 'reports_overview'
 end

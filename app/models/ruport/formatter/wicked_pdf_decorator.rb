@@ -1,4 +1,4 @@
-Ruport::Formatter::WickedPDF.class_eval do
+Ruport::Formatter::PDF.class_eval do
   def finalize_table
     # TODO would be great to eliminate this hack
     

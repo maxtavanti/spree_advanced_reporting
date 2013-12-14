@@ -4,7 +4,7 @@ Spree::Admin::ReportsController.class_eval do
   # until https://github.com/spree/spree/issues/1863 is taken care of
   # this is a workaround hack to get the report definitions to load
 
-  I18n.load_path << Spree::AdvancedReporting::Engine.config.paths["config/locales"].first
+  I18n.load_path << SpreeAdvancedReporting::Engine.config.paths["config/locales"].first
   I18n.locale = I18n.default_locale
   I18n.reload!
 
@@ -15,7 +15,7 @@ Spree::Admin::ReportsController.class_eval do
     ADVANCED_REPORTS[x]= {name: I18n.t("adv_report.#{x}"), :description => I18n.t("adv_report.#{x}")}
   end
 
-  Spree::Admin::ReportsController::AVAILABLE_REPORTS.merge!(ADVANCED_REPORTS)
+  Spree::Admin::ReportsController::available_reports.merge!(ADVANCED_REPORTS)
 
   before_filter :basic_report_setup, :actions => ADVANCED_REPORTS.keys
    
